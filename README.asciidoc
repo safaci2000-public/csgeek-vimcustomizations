@@ -27,14 +27,14 @@ For example.  vim ILoveToCode.java IF the file doesn't exist, it will look in .v
 Custom Mapping
 ~~~~~~~~~~~~~~
 
-Ctrl+tab : next tab (same as firefox/chrome)
-Ctrl+t   : new tab
-Shift+Arrow : cycle through the various tabs.
+  * Ctrl+tab : next tab (same as firefox/chrome)
+  * Ctrl+t   : new tab
+  * Shift+Arrow : cycle through the various tabs.
 
 GUI Functions
 ~~~~~~~~~~~~~
- :nogui will remove most of the "GUI" elements from gvim.
- :gui   will reset what was removed.
+ * nogui will remove most of the "GUI" elements from gvim.
+ * gui   will reset what was removed.
 
 Future?
 -------
