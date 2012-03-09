@@ -1,0 +1,42 @@
+csgeek bundle
+=============
+
+
+Who is 'csgeek'?
+----------------
+
+That's me.  This is a plugin that's mostly designed for my own purposes.  It pulls some logic out of my .vimrc and makes it a bit cleaner and easier to read.
+
+
+What is this asciidoc stuff
+--------------------------- 
+
+See http://www.asciidoc.com.  To generate an html version of this file run asciidoc README.ascii
+
+
+Features
+--------
+
+Templates
+~~~~~~~~~
+
+create a template directory under your .vim/ directory.  if file doesn't exist, then it'll use the template you defined using the following convention extention.tmpl
+
+For example.  vim ILoveToCode.java IF the file doesn't exist, it will look in .vim/template/ for a file named java.tmpl and use that as a prototype.
+
+Custom Mapping
+~~~~~~~~~~~~~~
+
+Ctrl+tab : next tab (same as firefox/chrome)
+Ctrl+t   : new tab
+Shift+Arrow : cycle through the various tabs.
+
+GUI Functions
+~~~~~~~~~~~~~
+ :nogui will remove most of the "GUI" elements from gvim.
+ :gui   will reset what was removed.
+
+Future?
+-------
+
+What's coming up next?  Probably adding some proper vimdocs to go with this plugin.  This will get a bit more robust as I learn more about vim development.
