@@ -1,7 +1,5 @@
-"JSON Fix.
-map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
-"XML fix
-map <leader>xml  <Esc>:%!xmllint --format %<CR>
+autocmd BufNewFile * :call LoadFileTemplate()
+autocmd FileType mma :call SetupMathematica()
 
 " Mappings
 map <C-Tab> :tabnext<CR>
@@ -24,8 +22,18 @@ function! ResetGUI()
     "let do_syntax_sel_menu = 1|runtime! synmenu.vim|aunmenu &Syntax.&Show\ filetypes\ in\ menu
 endfunction
 
+function! SetupMathematica()
+    " Remove GUI Crud
+    set guioptions-=T
+    "set guioptions-=m  "hides menu bar
+    " Mathmatica comments
+    imap (**     (* <ESC>$a *)<ESC>^
+    "delete first (*  then go to end of line a delete last two chars. which should
+    "undo the line above  matches (*<space>blah<space>*)  keeping everything in between and removing the (*<space><space>*) 
+    nmap (dd      :s/\((\* \)\(.*\)\( \*)\)/\2/<CR>
+    nmap (D       :%s/(\*//<CR>  :%s/\*)//<CR>
+endfunction
 
-autocmd BufNewFile * :call LoadFileTemplate()
 
 function! LoadFileTemplate()
   silent! 0r ~/.vim/template/%:e.tmpl
@@ -33,4 +41,18 @@ function! LoadFileTemplate()
   "hi vimTemplateMarker guifg=#67a42c guibg=#112300 gui=bold
 endfunction
 
+" Style
+"imap {{ {<CR><CR>}<UP><RIGHT>
+set ts=4
+set sw=4
+set autoindent
+set smartindent
+set expandtab
 
+
+"JSON Fix.
+"dependency: sudo apt-get intall libjson-xs-perl
+map <leader>jt  <Esc>:%!json_xs -f json -t json-pretty<CR>
+"XML fix
+"dependency: sudo apt-get install libxml2-utils
+map <leader>xml  <Esc>:%!xmllint --format %<CR>
