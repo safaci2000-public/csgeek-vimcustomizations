@@ -22,19 +22,6 @@ function! ResetGUI()
     "let do_syntax_sel_menu = 1|runtime! synmenu.vim|aunmenu &Syntax.&Show\ filetypes\ in\ menu
 endfunction
 
-function! SetupMathematica()
-    " Remove GUI Crud
-    set guioptions-=T
-    "set guioptions-=m  "hides menu bar
-    " Mathmatica comments
-    imap (**     (* <ESC>$a *)<ESC>^
-    "delete first (*  then go to end of line a delete last two chars. which should
-    "undo the line above  matches (*<space>blah<space>*)  keeping everything in between and removing the (*<space><space>*) 
-    nmap (dd      :s/\((\* \)\(.*\)\( \*)\)/\2/<CR>
-    nmap (D       :%s/(\*//<CR>  :%s/\*)//<CR>
-endfunction
-
-
 function! LoadFileTemplate()
   silent! 0r ~/.vim/template/%:e.tmpl
   "syn match vimTemplateMarker "&lt;+.\++&gt;" containedin=ALL
